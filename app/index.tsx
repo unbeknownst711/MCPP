@@ -1,16 +1,22 @@
-import { Text, View } from "react-native";
+import { Text, View, Image, ScrollView, TextInput } from "react-native";
+import { Test } from "./test";
+import { Style } from "./style"
+
+const style = new Style()
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Davin Dick - 00000108484</Text>
-      
-    </View>
+    <ScrollView >
+        <TextInput style={style.textbox} />
+        <View style = {style.docs}>
+            <Test text="HanMok" img="a"/>
+            <Test text="Zeba" img="b"/>
+            <Test text="MeaTaka" img="c"/>
+            <Test text="Gamlimloi" img="d"/>
+            <Test text="Sleb" img="e"/>
+            <Test text="Crutel" img="f"/>
+            <Test text="Jukut" img="g"/>
+        </View>
+    </ScrollView>
   );
 }
