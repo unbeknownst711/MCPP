@@ -13,14 +13,16 @@ export default function Index() {
     const handleDecrement = () => { setCount(count-1) };
     const handleTextBox = (curName) => setName(curName);
     const changeWelcomeText = () => {
+      setStrings("nama: " + name + " | umur: " + count);
     }
 
 
     return (
         <View style = {style.docs}>
+          <Text>{strings}</Text>
             <Counter value={count} handleIncrement={handleIncrement} handleDecrement={handleDecrement}/>
             <View style={style.separator}/>
-            <Button title="Pass Value"/>
+            <Button title="Pass Value" onPress={changeWelcomeText} />
             <View style={style.separator}/>
             <TextInput onChangeText={handleTextBox}/>
         </View>
