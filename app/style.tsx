@@ -2,29 +2,32 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     docs:{
-        margin: "5px",
+        margin: 5,
         alignItems: "center"
     },
 
     textbox:{
         backgroundColor: "#a0a0a0",
         borderColor: "black",
-        borderWidth: "1px",
-        borderRadius: "5px"
+        borderWidth: 1,
+        borderRadius: 5
     },
     card: {
         backgroundColor: "#d0d0d0",
-        padding: "4px",
-        margin: "3px",
+        padding: 4,
+        margin: 3,
         borderColor: "white",
-        borderRadius: "6px",
-        borderWidth: "2px",
-        minWidth: "270px",
-        minHeight: "100px",
+        borderRadius: 6,
+        borderWidth: 2,
+        minWidth: 270,
+        minHeight: 100,
         alignItems:"center"
     },
     textCenter:{
         textAlign: "center"
+    },
+    separator:{
+        minHeight: 5
     }
 
 

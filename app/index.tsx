@@ -1,22 +1,32 @@
-import { Text, View, Image, ScrollView, TextInput } from "react-native";
-import { Test } from "./test";
+import {Button, Text, View} from "react-native"
+import {useState, useContext} from "react"
 import { Style } from "./style"
+import Counter from "./counter"
 
 const style = new Style()
 
 export default function Index() {
-  return (
-    <ScrollView >
-        <TextInput style={style.textbox} />
+    const [count , setCount] = useState(0);
+    const [name, setName] = useContext<String>("");
+    const [strings, setStrings] = useState("")
+    const handleIncrement = () => { setCount(count + 1) };
+    const handleDecrement = () => { setCount(count-1) };
+    const handleTextBox = (curName) => setName(curName);
+    const changeWelcomeText = () => {
+    }
+
+
+    return (
         <View style = {style.docs}>
-            <Test text="HanMok" img="a"/>
-            <Test text="Zeba" img="b"/>
-            <Test text="MeaTaka" img="c"/>
-            <Test text="Gamlimloi" img="d"/>
-            <Test text="Sleb" img="e"/>
-            <Test text="Crutel" img="f"/>
-            <Test text="Jukut" img="g"/>
+            <Counter value={count} handleIncrement={handleIncrement} handleDecrement={handleDecrement}/>
+            <View style={style.separator}/>
+            <Button title="Pass Value"/>
+            <View style={style.separator}/>
+            <TextInput onChangeText={handleTextBox}/>
         </View>
-    </ScrollView>
+    )
+
+  return (
+    <Counter/>
   );
 }
