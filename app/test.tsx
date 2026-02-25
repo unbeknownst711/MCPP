@@ -1,5 +1,5 @@
 import { Text, View, Image, ScrollView } from "react-native";
-import { Style } from "./style"
+// import { Style } from "./style"
 
 // const images = {
 //     a: require('./pic/a.webp'),
@@ -10,13 +10,13 @@ import { Style } from "./style"
 //     f: require('./pic/f.webp'),
 //     g: require('./pic/g.webp')
 // };
-const style = new Style()
+// const style = new Style()
 
-export function Test(props){
-    return (
-        <View style={style.card}>
-            <Text style={style.textCenter}>{props.text}</Text>
-        </View>
-      );
-}
+// export function Test(props){
+//     return (
+//         <View style={style.card}>
+//             <Text style={style.textCenter}>{props.text}</Text>
+//         </View>
+//       );
+// }
 

@@ -5,7 +5,13 @@ const styles = StyleSheet.create({
         margin: 5,
         alignItems: "center"
     },
-
+    container:{
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 5,
+        display: "flex"
+    },
     textbox:{
         backgroundColor: "#a0a0a0",
         borderColor: "black",
@@ -16,23 +22,28 @@ const styles = StyleSheet.create({
         backgroundColor: "#d0d0d0",
         padding: 4,
         margin: 3,
-        borderColor: "white",
+        borderColor: "black",
         borderRadius: 6,
         borderWidth: 2,
         minWidth: 270,
         minHeight: 100,
-        alignItems:"center"
+        alignItems:"center",
+        flexDirection: "row",
+        gap: 8
     },
     textCenter:{
         textAlign: "center"
     },
     separator:{
         minHeight: 5
+    },
+    avatar:{
+        width: 75,
+        height: 75,
+        borderRadius: 100
     }
 
 
 })
 
-export function Style(){
-    return styles;
-}
+export default styles;

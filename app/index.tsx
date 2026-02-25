@@ -1,34 +1,33 @@
-import {Button, Text, View, TextInput} from "react-native"
-import {useState, useContext} from "react"
-import { Style } from "./style"
-import Counter from "./counter"
+import { Image, ScrollView, Text, View} from "react-native";
+import {Stack} from "expo-router";
+import styles from "./style";
+import userData from "./data.json";
+import {useTheme} from "react-native-paper";
 
-const style = new Style()
 
 export default function Index() {
-    const [count , setCount] = useState(0);
-    const [strings, setStrings] = useState("")
-    const [name, setName] = useState("");
-    const handleIncrement = () => { setCount(count + 1) };
-    const handleDecrement = () => { setCount(count-1) };
-    const handleTextBox = (curName) => setName(curName);
-    const changeWelcomeText = () => {
-      setStrings("nama: " + name + " | umur: " + count);
-    }
-
-
+    const theme = useTheme();
     return (
-        <View style = {style.docs}>
-          <Text>{strings}</Text>
-            <Counter value={count} handleIncrement={handleIncrement} handleDecrement={handleDecrement}/>
-            <View style={style.separator}/>
-            <Button title="Pass Value" onPress={changeWelcomeText} />
-            <View style={style.separator}/>
-            <TextInput onChangeText={handleTextBox}/>
-        </View>
-    )
+    <>
+        <Text>{"aa"}</Text>
+        <Stack.Screen options={{title: "User List"}} />
 
-  return (
-    <Counter/>
-  );
+        <ScrollView>
+            {userData.map((user , index)=>(
+                <View style={[styles.container,{backgroundColor: theme.colors.background}]} key={index}>
+                    <View style={[styles.card,{backgroundColor: theme.colors.primary}]}>
+                        <Image source={{uri: user.photo_url}} style={styles.avatar}/>
+                        <View>
+                            <Text>{user.name}</Text>
+                            <Text>{user.email}</Text>
+                        </View>
+                    </View>
+                </View>
+
+
+            ))}
+        </ScrollView>
+    </>
+    );
+
 }
