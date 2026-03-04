@@ -38,9 +38,19 @@ const styles = StyleSheet.create({
         minHeight: 5
     },
     avatar:{
-        width: 75,
-        height: 75,
-        borderRadius: 100
+        minWidth: 75,
+        minHeight: 75,
+        borderRadius: 100,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    middle:{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    linkText:{
+        fontColor: "#0000ff"
     }
 
 

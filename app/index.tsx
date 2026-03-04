@@ -1,33 +1,17 @@
-import { Image, ScrollView, Text, View} from "react-native";
-import {Stack} from "expo-router";
-import styles from "./style";
-import userData from "./data.json";
-import {useTheme} from "react-native-paper";
+import Home from "./home";
+import UserList from "./userList";
+import Profile from "./profile";
+import {NavigationContainer} from "@react-navigation/native"
+import { createNativeStackNavigator} from "@react-navigation/native-stack"
 
+const Stack = createNativeStackNavigator();
 
-export default function Index() {
-    const theme = useTheme();
-    return (
-    <>
-        <Text>{"aa"}</Text>
-        <Stack.Screen options={{title: "User List"}} />
-
-        <ScrollView>
-            {userData.map((user , index)=>(
-                <View style={[styles.container,{backgroundColor: theme.colors.background}]} key={index}>
-                    <View style={[styles.card,{backgroundColor: theme.colors.primary}]}>
-                        <Image source={{uri: user.photo_url}} style={styles.avatar}/>
-                        <View>
-                            <Text>{user.name}</Text>
-                            <Text>{user.email}</Text>
-                        </View>
-                    </View>
-                </View>
-
-
-            ))}
-        </ScrollView>
-    </>
-    );
-
+export default function Index(){
+    return(
+            <Stack.Navigator>
+                <Stack.Screen name="home" component={Home}/>
+                <Stack.Screen name="userList" component={UserList}/>
+                <Stack.Screen name="profile" component={Profile}/>
+            </Stack.Navigator>
+    )
 }
