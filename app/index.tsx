@@ -1,17 +1,25 @@
-import Home from "./home";
-import UserList from "./userList";
-import Profile from "./profile";
-import {NavigationContainer} from "@react-navigation/native"
-import { createNativeStackNavigator} from "@react-navigation/native-stack"
+import { Text, View, TextInput } from "react-native";
+import {useState} from "react"
+import styles from "./style"
+import {CustomTextInput, CustomNimInput} from "./input"
 
-const Stack = createNativeStackNavigator();
+export default function Index() {
+    const [name, setName] = useState("")
+    const [nim, setNim] = useState("");
 
-export default function Index(){
-    return(
-            <Stack.Navigator>
-                <Stack.Screen name="home" component={Home}/>
-                <Stack.Screen name="userList" component={UserList}/>
-                <Stack.Screen name="profile" component={Profile}/>
-            </Stack.Navigator>
-    )
+
+    const handleChangeName = (val : string) => {
+        setName(val)
+    }
+    const handleChangeNim = (val : string) => {
+        setNim(val)
+    }
+
+    return (
+        <View style={styles.container}>
+            <Text>{name} - {nim}</Text>
+            <CustomTextInput input={name} onChange={handleChangeName} />
+            <CustomNimInput input={nim} onChange={handleChangeNim} />
+        </View>
+    );
 }
