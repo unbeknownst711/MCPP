@@ -3,7 +3,8 @@ import styles from "./style";
 import userData from "./data.json";
 import {useTheme, Avatar, Card, Text} from "react-native-paper";
 import {Link} from "expo-router";
-
+import Animated, {FadeInLeft} from 'react-native-reanimated';
+import { useState } from 'react';
 
 
 export default function Index({navigation}) {
@@ -11,7 +12,7 @@ export default function Index({navigation}) {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             {userData.map((user , index)=>(
-            <Card key={index} style={StyleSheet.flatten([styles.card,{backgroundColor: theme.colors.primary}])}>
+            <Animated.View key={index} entering={FadeInLeft.delay(index*300)} style={StyleSheet.flatten([styles.card,{backgroundColor: theme.colors.primary}])}>
                     <TouchableOpacity onPress={()=>navigation.navigate("profile", {user:user})} style={StyleSheet.flatten([styles.card,{backgroundColor: theme.colors.primary}])}>
                         <Avatar.Image source={{uri: user.photo_url}} style={styles.avatar}/>
                         <View>
@@ -20,7 +21,7 @@ export default function Index({navigation}) {
                         </View>
 
                     </TouchableOpacity>
-            </Card>
+            </Animated.View>
             ))}
         </ScrollView>
     );

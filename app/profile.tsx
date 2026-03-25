@@ -1,12 +1,13 @@
 import {Link, useLocalSearchParams} from "expo-router";
 import {Button,View,TouchableOpacity} from "react-native";
 import {useTheme, Avatar, Card, Text} from "react-native-paper";
-import Style from "./style"
+import Style from "./style";
+import Animated, {FadeInUp} from 'react-native-reanimated';
 
 export default function Profile({navigation,route}){
     const {user} = route.params
     return(
-        <View style={Style.middle}>
+        <Animated.View style={Style.middle} entering={FadeInUp}>
         <Avatar.Image source={{uri: user.photo_url}} style={Style.avatar}/>
         <Text>{user.name}&apos;s Profile</Text>
         <Text>{user.email}</Text>
@@ -17,7 +18,7 @@ export default function Profile({navigation,route}){
             <TouchableOpacity onPress={()=>navigation.navigate("home")}>
                 <Text style={Style.linkText}>Home</Text>
             </TouchableOpacity>
-        </View>
+        </Animated.View>
     )
 
 }

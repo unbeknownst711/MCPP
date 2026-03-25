@@ -10,7 +10,7 @@ export default function RootLayout() {
     const paperTheme = colorScheme === 'dark' ? { ...MD3DarkTheme, colors: theme.dark } : { ...MD3LightTheme, colors: theme.light };
   return (
   <PaperProvider theme={paperTheme}>
-  <Index />
+        <Index />
   </PaperProvider>
   );
 }
